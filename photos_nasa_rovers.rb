@@ -32,6 +32,4 @@ puts build_page_nasa(picture_web)
 
 
 def photos_count 
-
-
-
+end
