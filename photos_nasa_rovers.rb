@@ -11,7 +11,7 @@ def request (url, token = nil)
     return JSON.parse(response.read_body)
 end
 
-nasa_api = request("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1", "sADGbmlSFHZbnl6FmA2skA94XsDrcigc1h3AqLSu")
+nasa_api = request("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=10", "sADGbmlSFHZbnl6FmA2skA94XsDrcigc1h3AqLSu")
 picture_web = nasa_api["photos"].map do |i|
     i["img_src"] 
 end
@@ -42,8 +42,8 @@ def photos_count(info_hash)
             end
         end
     end
-    #puts "Name of camera and number of photos#{counter}"
+    puts "Name of camera and number of photos#{counter}"
 end
-#photos_count(nasa_api)
+puts photos_count(nasa_api)
 
  
