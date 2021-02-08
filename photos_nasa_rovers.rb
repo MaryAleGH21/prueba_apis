@@ -11,17 +11,17 @@ def request (url, token = nil)
     return JSON.parse(response.read_body)
 end
 
-nasa_hash = request("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1", "sADGbmlSFHZbnl6FmA2skA94XsDrcigc1h3AqLSu")
+nasa_hash = request("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=10", "sADGbmlSFHZbnl6FmA2skA94XsDrcigc1h3AqLSu")
 picture_web = nasa_hash["photos"].map do |i|
     i["img_src"] 
 end
  
 def build_page_nasa(info_hash) 
     File.open("index.html", "w") do |file| 
-        file.puts"<html>\n<head>\n<title>Prueba API</title>\n</head>"
-        file.puts"<body>\n<h1>Photos Rovers</h1>\n<ul>"
+        file.puts"<html>\n<head>\n<title>API Nasa</title>\n</head>"
+        file.puts"<body>\n<h1 align = 'center'>Prueba photos Rovers</h1>\n<ul>"
         info_hash.each  do |photo|
-            file.puts "<img src='#{photo}'width ='200'>"    
+            file.puts "<img src='#{photo}'width ='300' height = '200'>"    
         end
         file.puts"</ul>\n</body>\n</html>\n"  
     end
